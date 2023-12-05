@@ -49,3 +49,34 @@ testDynamicScaleOptions(['40', undefined]); // 유효한 값과 undefined
 testDynamicScaleOptions(['not a number', 'also not a number']); // 유효하지 않은 값들
 
 ```
+* min/max가 의미 없는 값이면 추가하지 않는 로직 추가
+
+## 3번
+```jsx
+import _ from 'lodash';
+
+function testDynamicScaleOptions(bounds) {
+  const min = _.isFinite(_.toNumber(bounds[0])) ? bounds[0] : undefined;
+  const max = _.isFinite(_.toNumber(bounds[1])) ? bounds[1] : undefined;
+
+  const isValidValue = (value) => {
+    return value !== undefined && value !== '';
+  };
+
+  const scaleOptions = {
+    ...(isValidValue(min) && { min }),
+    ...(isValidValue(max) && { max }),
+  };
+
+  console.log(`Testing with bounds: [${bounds}]`);
+  console.log(`Resulting scale options: `, scaleOptions);
+}
+
+// 테스트 케이스 실행
+testDynamicScaleOptions(['10', '20']); // 유효한 숫자 문자열
+testDynamicScaleOptions(['not a number', '20']); // 유효하지 않은 값과 유효한 값
+testDynamicScaleOptions([undefined, '30']); // undefined와 유효한 값
+testDynamicScaleOptions(['40', undefined]); // 유효한 값과 undefined
+testDynamicScaleOptions(['not a number', 'also not a number']); // 유효하지 않은 값들
+```
+* isValidValue 함수 추가
