@@ -41,6 +41,9 @@ export const formatStaticGraphValue = (axes, value) => {
   return prefix + formattedValue + suffix;
 };
 
+const testValue1 = 5570843665.066667;
+const testValue2 = 7061868877.748148;
+
 const axes = {
   x: {
     bounds: ['', ''],
@@ -67,8 +70,8 @@ const axes = {
     scale: 'linear',
   },
 };
-console.log(formatStaticGraphValue(axes, 5570568192.0));
-console.log(formatStaticGraphValue(axes, 7035438421.33));
+console.log(formatStaticGraphValue(axes, testValue1));
+console.log(formatStaticGraphValue(axes, testValue2));
 
 const baseAxes = {
   x: {
@@ -96,7 +99,8 @@ const baseAxes = {
     scale: 'linear',
   },
 };
-console.log(formatStaticGraphValue(baseAxes, 5570568192.0));
-console.log(formatStaticGraphValue(baseAxes, 7035438421.33));
+console.log(formatStaticGraphValue(baseAxes, testValue1));
+console.log(formatStaticGraphValue(baseAxes, testValue2));
+
 
 ```
