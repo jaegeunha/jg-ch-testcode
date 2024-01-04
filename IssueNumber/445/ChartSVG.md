@@ -5,7 +5,7 @@
 ```
 1. 모든 id를 삭제해줘
 2. style 대신 className 속성을 넣어줘
-3. className은 줄을 기준으로 넣어줘
+3. className은 줄을 기준으로 넣어줘, 속성 이름은 class가 아닌 className이야. 리액트 jsx 문법이야
   * 줄을 숫자 3으로 나눴을 때 나머지가 1이면 graph-type-selector--graphic-line graphic-line-a
   * 줄을 숫자 3으로 나눴을 때 나머지가 2이면 graph-type-selector--graphic-line graphic-line-b
   * 줄을 숫자 3으로 나눴을 때 나머지가 0이면 graph-type-selector--graphic-line graphic-line-c
